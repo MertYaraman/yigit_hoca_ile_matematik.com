@@ -589,14 +589,16 @@ ul {
 
 .cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
+    align-items: stretch;
 }
 
 .class-card {
     padding: 2.2rem;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     position: relative;
     height: 100%;
 }
@@ -855,6 +857,14 @@ ul {
     display: flex;
     gap: 1.2rem;
     flex-wrap: wrap;
+}
+
+.summary-actions .btn {
+    flex: 1 1 200px;
+    justify-content: center;
+    padding: 0.85rem 1.4rem;
+    font-size: 0.95rem;
+    border-radius: var(--radius-md);
 }
 
 /* ==========================================================================
@@ -1219,6 +1229,10 @@ label {
    RESPONSIVE DESIGN (MEDIA QUERIES)
    ========================================================================== */
 @media (max-width: 992px) {
+    .cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    }
+
     .hero-container {
         grid-template-columns: 1fr;
         text-align: center;
@@ -1236,16 +1250,28 @@ label {
         justify-content: center;
     }
 
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-
     .footer-container {
         grid-template-columns: 1fr 1fr;
     }
 }
 
 @media (max-width: 768px) {
+    .nav-cta {
+        gap: 0.4rem;
+    }
+
+    .nav-cta .btn {
+        padding: 0.42rem 0.75rem;
+        font-size: 0.8rem;
+        border-radius: var(--radius-full);
+        gap: 0.35rem;
+        border-width: 1px;
+    }
+
+    .nav-cta .btn i {
+        font-size: 0.8rem;
+    }
+
     .nav-menu {
         position: fixed;
         top: 70px;
@@ -1274,8 +1300,18 @@ label {
         font-size: 2.4rem;
     }
 
-    .form-row {
-        grid-template-columns: 1fr;
+    .summary-actions {
+        flex-direction: column;
+        gap: 0.8rem;
+        width: 100%;
+    }
+
+    .summary-actions .btn {
+        width: 100%;
+        flex: none;
+        padding: 0.85rem 1rem;
+        font-size: 0.92rem;
+        justify-content: center;
     }
 
     .footer-container {
